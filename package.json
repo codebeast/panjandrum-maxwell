@@ -1,0 +1,25 @@
+{
+  "name": "panjandrum",
+  "version": "1.0.0",
+  "description": "Panjandrum application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "",
+  "keywords": [
+    "Panjandrum"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "angular": "^1.6.4",
+    "angular-cookies": "^1.6.4",
+    "angular-material": "^1.1.3",
+    "angular-route": "^1.6.4",
+    "electron": "~1.6.2",
+    "hammer": "0.0.5",
+    "jquery": "^3.2.1",
+    "materialize-css": "^0.98.1"
+  }
+}

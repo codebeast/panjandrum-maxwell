@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="UTF-8">
+    <title>Panjandrum</title>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="./node_modules/materialize-css/dist/css/materialize.min.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/styles.css">
+  </head>
+
+  <body>
+    <ng-view class="full"></ng-view>
+
+    <script>
+      require('./renderer.js'),
+      require('jquery'),
+      require('hammerjs'),
+      require('angular'),
+      require('angular-cookies'),
+      require('angular-route');
+    </script>
+    <script src="./node_modules/materialize-css/dist/js/materialize.min.js"/></script>
+    <script src="./scripts/app.js"></script>
+    <script src="./scripts/login/loginController.js"></script>
+    <script src="./scripts/clients/clientsController.js"></script>
+    <script src="./scripts/dashboard/dashboardController.js"></script>
+  </body>
+</html>
