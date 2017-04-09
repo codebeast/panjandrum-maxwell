@@ -30,7 +30,7 @@
           controllerAs: '_ctrl'
       });
 
-      $routeProvider.otherwise({ redirectTo: '/login' });
+      $routeProvider.otherwise({ redirectTo: '/dashboard' });
     }
   ])
   .run(run);

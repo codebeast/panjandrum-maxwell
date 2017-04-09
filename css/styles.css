@@ -1,7 +1,7 @@
 body, html {
-    width: 100%;
-    height: 100%;
-    margin: 0px;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
 }
 .full { height: 96%;}
 
@@ -12,4 +12,18 @@ body {
 .login {
   background-color:black;
   color:white;
+}
+
+header, main, footer {
+  padding-left: 75px;
+}
+
+@media only screen and (max-width : 992px) {
+  header, main, footer {
+    padding-left: 0;
+  }
+
+.test{
+  max-width: 50px !important;
+  width: 50px !important;
 }
