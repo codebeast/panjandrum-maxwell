@@ -21,11 +21,7 @@
         requireBase: false
       });
 
-      $routeProvider.when('/clients', {
-          templateUrl: _templateBase + '/clients/clients.html' ,
-          controller: 'clientsController',
-          controllerAs: '_ctrl'
-      }).when('/login', {
+      $routeProvider.when('/login', {
         templateUrl: _templateBase + '/login/login.html' ,
           controller: 'loginController',
           controllerAs: '_ctrl'
@@ -40,6 +36,18 @@
       }).when('/create/campaign', {
         templateUrl: _templateBase + '/campaigns/createcampaign.html' ,
           controller: 'createCampaignController',
+          controllerAs: '_ctrl'
+      }).when('/settings', {
+        templateUrl: _templateBase + '/settings/settings.html' ,
+          controller: 'settingsController',
+          controllerAs: '_ctrl'
+      }).when('/contacts', {
+        templateUrl: _templateBase + '/contacts/contacts.html' ,
+          controller: 'contactsController',
+          controllerAs: '_ctrl'
+      }).when('/templates', {
+        templateUrl: _templateBase + '/templates/templates.html' ,
+          controller: 'templatesController',
           controllerAs: '_ctrl'
       });
 
