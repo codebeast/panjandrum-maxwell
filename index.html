@@ -8,23 +8,25 @@
     <link rel="stylesheet" type="text/css" href="./css/materialize.css"/>
     <link rel="stylesheet" type="text/css" href="./css/styles.css">
     <link rel="stylesheet" type="text/css" href="./css/font-awesome.css">
-  </head>
-
-  <body>
-    <ng-view class="full"></ng-view>
-
     <script>
-      require('./renderer.js'),
-      require('jquery'),
-      require('hammerjs'),
-      require('angular'),
-      require('angular-cookies'),
-      require('angular-route');
+          require('./renderer.js'),
+          require('jquery'),
+          require('hammerjs'),
+          require('angular'),
+          require('angular-cookies'),
+          require('angular-route');
     </script>
     <script src="./node_modules/materialize-css/dist/js/materialize.min.js"/></script>
     <script src="./scripts/app.js"></script>
     <script src="./scripts/login/loginController.js"></script>
     <script src="./scripts/clients/clientsController.js"></script>
     <script src="./scripts/dashboard/dashboardController.js"></script>
+
+    <script src="./scripts/navbar/navbarDirective.js"></script>
+  </head>
+
+  <body>
+      <navbar-directive></navbar-directive>
+      <ng-view class="full"></ng-view>
   </body>
 </html>

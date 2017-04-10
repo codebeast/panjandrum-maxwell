@@ -3,14 +3,17 @@
 
     var _templateBase = './scripts';
 
+    var directives = angular.module("directives", []);
+    var controllers = angular.module("controllers", []);
+
     angular.module('app', [
         'ngRoute',
-        'ngCookies'
+        'ngCookies',
+        'directives',
+        'controllers'
     ])
     .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
-      console.log("creating route provider");
       $locationProvider.hashPrefix('!');
-
       $locationProvider.html5Mode({
         enabled: false,
         requireBase: false
@@ -46,8 +49,6 @@
             var loggedIn = $rootScope.globals.currentUser;
             if (restrictedPage && !loggedIn) {
                 // $location.path('/login');
-                console.log("accessing restrictedPage");
-                console.log($location.path());
             }
         });
     }

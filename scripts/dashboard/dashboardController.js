@@ -1,15 +1,13 @@
 (function () {
     'use strict';
     angular.module('app')
-        .controller('dashboardController', ['$scope', '$http', DashboardController]);
+        .controller('dashboardController', ['$scope', '$location', '$http', DashboardController]);
 
-    function DashboardController($scope, $http) {
-      console.log("created controller")
+    function DashboardController($scope, $location, $http) {
         var self = this;
-        self.count = 100;
-        
         $scope.buttonClick = function() {
           console.log("this button was clicked");
+          $location.url('/login');
         }
       }
     }
