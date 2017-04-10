@@ -1,0 +1,66 @@
+<main class="full">
+  <div class="container">
+    <div class="row">
+      <div class="col s12">
+        <p class="flow-text center">Create Campaign</p>
+        <div class="row">
+          <div class="col s6 push-s3">
+            <div class="input-field">
+              <input id="name" type="text" class="validate">
+              <label for="name">Campaign Name</label>
+            </div>
+
+            <div class="input-field">
+              <select>
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">Draft</option>
+                <option value="2">Active</option>
+                <option value="3">Complete</option>
+              </select>
+              <label>Status</label>
+            </div>
+
+            <div class="row"></div>
+            <div class="input-field">
+              <select>
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">EE - Campaign</option>
+                <option value="3">EE - 2 4 1</option>
+              </select>
+              <label>Campaign Template</label>
+            </div>
+
+            <div class="row"></div>
+            <div class="input-field">
+              <select>
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">Contact List 1</option>
+                <option value="3">Contact List 2</option>
+              </select>
+              <label>Contacts</label>
+            </div>
+
+            <div class="row"></div>
+            <div class="input-field">
+              <select>
+                <option value="" disabled selected>Choose your option</option>
+                <option value="1">2-4-1 Pizza Express</option>
+                <option value="3">£25 Google Play</option>
+              </select>
+              <label>Tickets</label>
+            </div>
+
+          </div>
+        </div>
+        <div class="fixed-action-btn horizontal">
+          <a class="btn green" href="#!/capaigns">Save</a>
+          <a class="btn red" href="#!/capaigns">Cancel</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    $('select').material_select();
+  </script>
+
+</main>

@@ -13,7 +13,9 @@
         'controllers'
     ])
     .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+      console.log("creating route provider");
       $locationProvider.hashPrefix('!');
+
       $locationProvider.html5Mode({
         enabled: false,
         requireBase: false
@@ -31,15 +33,23 @@
         templateUrl: _templateBase + '/dashboard/dashboard.html' ,
           controller: 'dashboardController',
           controllerAs: '_ctrl'
+      }).when('/capaigns', {
+        templateUrl: _templateBase + '/campaigns/campaigns.html' ,
+          controller: 'campaignsController',
+          controllerAs: '_ctrl'
+      }).when('/create/campaign', {
+        templateUrl: _templateBase + '/campaigns/createcampaign.html' ,
+          controller: 'createCampaignController',
+          controllerAs: '_ctrl'
       });
 
-      $routeProvider.otherwise({ redirectTo: '/dashboard' });
+      $routeProvider.otherwise({ redirectTo: '/create/campaign' });
     }
   ])
   .run(run);
 
-  run.$inject = ['$rootScope', '$location', '$cookieStore', '$http'];
-    function run($rootScope, $location, $cookieStore, $http) {
+  run.$inject = ['$rootScope', '$location', '$cookieStore', '$http', '$timeout'];
+    function run($rootScope, $location, $cookieStore, $http, $timeout) {
         $rootScope.globals = $cookieStore.get('globals') || {};
         if ($rootScope.globals.currentUser) {
             $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
@@ -49,7 +59,16 @@
             var loggedIn = $rootScope.globals.currentUser;
             if (restrictedPage && !loggedIn) {
                 // $location.path('/login');
+                console.log("accessing restrictedPage");
+                console.log($location.path());
             }
+            $('select').material_select();
+        });
+        $rootScope.$on('$routeChangeSuccess', function (next, last) {
+          console.log("on change")
+          $timeout( function () {
+              $('select').material_select();
+          },50);
         });
     }
 })();

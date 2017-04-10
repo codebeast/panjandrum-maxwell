@@ -3,8 +3,8 @@ body, html {
   height: 100%;
   margin: 0px;
 }
-.full { height: 96%;}
-
+.full { height: 100%;}
+.full-login { height: 98%;}
 body {
   background-color:white;
 }

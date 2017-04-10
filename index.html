@@ -21,12 +21,18 @@
     <script src="./scripts/login/loginController.js"></script>
     <script src="./scripts/clients/clientsController.js"></script>
     <script src="./scripts/dashboard/dashboardController.js"></script>
-
+    <script src="./scripts/campaigns/campaignsController.js"></script>
+    <script src="./scripts/campaigns/createCampaignController.js"></script>
     <script src="./scripts/navbar/navbarDirective.js"></script>
   </head>
 
-  <body>
+  <body class="grey lighten-3">
       <navbar-directive></navbar-directive>
       <ng-view class="full"></ng-view>
   </body>
+  <script>
+    $(document).ready(function() {
+      $('select').material_select();
+    });
+  </script>
 </html>
