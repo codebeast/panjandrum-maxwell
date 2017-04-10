@@ -53,6 +53,10 @@
       templateUrl: _templateBase + '/tickets/tickets.html' ,
       controller: 'ticketsController',
       controllerAs: '_ctrl'
+    }).when('/builder', {
+      templateUrl: _templateBase + '/builder/builder.html' ,
+      controller: 'builderController',
+      controllerAs: '_ctrl'
     });
 
     $routeProvider.otherwise({ redirectTo: '/create/campaign' });
