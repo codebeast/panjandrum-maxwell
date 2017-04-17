@@ -1,0 +1,36 @@
+<main class="full">
+  <div class="container">
+    <div class="row">
+      <div class="col s12">
+        <p class="flow-text center">Create Template</p>
+
+        <div class="row">
+          <div class="col s6">
+                  <!-- <input color-picker color-picker-model="var"/> -->
+                  <input color-picker
+       color-picker-model="var"
+       color-picker-show-value="true"
+       color-picker-output-format="'hex'"
+       color-picker-position="right"
+       color-picker-fixed-position="rue"
+       color-picker-show-input-spinner="true"
+  />
+          </div>
+          <div class="col s6 center">
+            <div style="width:411px;height:731px; border-style:solid; border-color:black; border-radius:10px">
+            </div>
+          </div>
+        </div>
+
+        <div class="fixed-action-btn horizontal">
+          <a class="btn green" ng-click="save()">Save</a>
+          <a class="btn red" href="#!/contacts">Cancel</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+  $('select').material_select();
+  </script>
+</main>

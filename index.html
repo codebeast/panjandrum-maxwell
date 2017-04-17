@@ -1,42 +1,51 @@
 <!DOCTYPE html>
-<html ng-app="app">
-  <head>
-    <meta charset="UTF-8">
-    <title>Panjandrum</title>
-    <meta name="description" content=""/>
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <link rel="stylesheet" type="text/css" href="./css/materialize.css"/>
-    <link rel="stylesheet" type="text/css" href="./css/styles.css">
-    <link rel="stylesheet" type="text/css" href="./css/font-awesome.css">
-    <script>
-          require('./renderer.js'),
-          require('jquery'),
-          require('hammerjs'),
-          require('angular'),
-          require('angular-cookies'),
-          require('angular-route');
-    </script>
-    <script src="./node_modules/materialize-css/dist/js/materialize.min.js"/></script>
-    <script src="./scripts/app.js"></script>
-    <script src="./scripts/login/loginController.js"></script>
-    <script src="./scripts/contacts/contactsController.js"></script>
-    <script src="./scripts/templates/templatesController.js"></script>
-    <script src="./scripts/settings/settingsController.js"></script>
-    <script src="./scripts/dashboard/dashboardController.js"></script>
-    <script src="./scripts/tickets/ticketsController.js"></script>
-    <script src="./scripts/builder/builderController.js"></script>
-    <script src="./scripts/campaigns/campaignsController.js"></script>
-    <script src="./scripts/campaigns/createCampaignController.js"></script>
-    <script src="./scripts/navbar/navbarDirective.js"></script>
-  </head>
+<html ng-app="app" >
+<head>
+  <meta charset="UTF-8">
+  <title>Panjandrum - MAXWELL</title>
+  <meta name="description" content=""/>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <link rel="stylesheet" type="text/css" href="./css/materialize.css"/>
+  <link rel="stylesheet" type="text/css" href="./css/styles.css">
+  <link rel="stylesheet" type="text/css" href="./css/font-awesome.css">
+  <link rel="stylesheet" type="text/css" href="./css/color-picker.min.css">
 
-  <body class="grey lighten-3">
-      <navbar-directive></navbar-directive>
-      <ng-view class="full"></ng-view>
-  </body>
   <script>
-    $(document).ready(function() {
-      $('select').material_select();
-    });
+         require('./renderer.js'),
+         require('jquery'),
+         require('hammerjs'),
+         require('angular'),
+         require('angular-cookies'),
+         require('angular-route');
   </script>
+  <script src="./node_modules/materialize-css/dist/js/materialize.min.js"/></script>
+  <script src="./scripts/color-picker.min.js"></script>
+  <script src="./scripts/app.js"></script>
+  <script src="./scripts/login/loginController.js"></script>
+  <script src="./scripts/contacts/contactsController.js"></script>
+  <script src="./scripts/contacts/createContactsController.js"></script>
+  <script src="./scripts/contacts/viewContactsController.js"></script>
+  <script src="./scripts/templates/templatesController.js"></script>
+  <script src="./scripts/settings/settingsController.js"></script>
+  <script src="./scripts/dashboard/dashboardController.js"></script>
+  <script src="./scripts/tickets/ticketsController.js"></script>
+  <script src="./scripts/tickets/createTicketsController.js"></script>
+  <script src="./scripts/tickets/viewTicketsController.js"></script>
+  <script src="./scripts/templates/createTemplateController.js"></script>
+  <script src="./scripts/templates/viewTemplateController.js"></script>
+  <script src="./scripts/builder/builderController.js"></script>
+  <script src="./scripts/campaigns/campaignsController.js"></script>
+  <script src="./scripts/campaigns/createCampaignController.js"></script>
+  <script src="./scripts/navbar/navbarDirective.js"></script>
+</head>
+
+<body class="white lighten-2">
+  <navbar-directive></navbar-directive>
+  <ng-view class="full"></ng-view>
+</body>
+<script>
+$(document).ready(function() {
+  $('select').material_select();
+});
+</script>
 </html>

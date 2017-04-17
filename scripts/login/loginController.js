@@ -1,19 +1,39 @@
 (function () {
-    'use strict';
-    angular.module('app')
-        .controller('loginController', ['$scope', '$location', '$http', LoginController]);
+  'use strict';
+  angular.module('app')
+  .controller('loginController', ['$scope', '$location', '$http', '$rootScope', LoginController]);
 
-    function LoginController($scope, $location, $http) {
-        var self = this;
+  function LoginController($scope, $location, $http, $rootScope) {
+    var self = this;
 
-        self.buttonClick = function() {
-          console.log("this button was clicked");
+    $scope.username = 'user';
+    $scope.password = 'password';
+    $scope.loginInvalid = false;
+
+    $scope.login = function() {
+      var authdata = btoa($scope.username + ':' + $scope.password);
+
+      $rootScope.globals = {
+        currentUser: {
+          username: $scope.username,
+          authdata: authdata
         }
+      };
 
-        $scope.login = function() {
-            console.log("logged in")
-            $location.path("/dashboard");
-        }
-      }
+      $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata;
+      $http({
+        method: 'GET',
+        url: $rootScope.restAPIUrl + '/account'
+      }).then(function successCallback(response) {
+        $scope.loginInvalid = false;
+        $location.path("/dashboard");
+      }, function errorCallback(response) {
+        console.log(response)
+        $rootScope.globals.currentUser = null;
+        $scope.loginInvalid = true;
+      });
+
     }
+  }
+}
 )();

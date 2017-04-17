@@ -1,0 +1,28 @@
+<main class="full">
+  <div class="container">
+    <div class="row">
+      <div class="col s12">
+        <p class="flow-text center">View Contacts - {{contactList.name}}</p>
+        <div class="row">
+          <div class="col s6 push-s3">
+            <table class="centered highlight">
+              <thead>
+                <tr>
+                  <th>Number</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="number in contactList.contacts">
+                  <td>{{number.mobileNumber}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="fixed-action-btn horizontal">
+          <a class="btn blue" href="#!/contacts">Back To Contacts</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

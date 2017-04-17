@@ -1,14 +1,22 @@
 (function () {
     'use strict';
     angular.module('app')
-        .controller('ticketsController', ['$scope', '$location', '$http', TicketsController]);
+        .controller('ticketsController', ['$scope', '$location', '$http', '$rootScope', TicketsController]);
 
-    function TicketsController($scope, $location, $http) {
+    function TicketsController($scope, $location, $http, $rootScope) {
         var self = this;
-        $scope.buttonClick = function() {
-          console.log("this button was clicked");
-          $location.url('/login');
-        }
+        $scope.vouchers = [];
+        $scope.loadData = function() {
+          $http({
+            method: 'GET',
+            url: $rootScope.restAPIUrl + '/vouchers'
+          }).then(function successCallback(response) {
+             $scope.vouchers = response.data;
+          }, function errorCallback(response) {
+            console.log(response)
+          });
+        };
+        $scope.loadData();
       }
     }
 )();

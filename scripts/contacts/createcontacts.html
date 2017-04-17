@@ -1,0 +1,44 @@
+<main class="full">
+  <div class="container">
+    <div class="row">
+      <div class="col s12">
+        <p class="flow-text center">Create Contact List</p>
+
+        <div class="row">
+          <div class="col s6 push-s3">
+            <div class="input-field">
+              <input id="name" type="text" class="validate" ng-model="name" placeholder="Contact List Name" min="3", maxlength="50">
+              <label for="name">Contact List Name</label>
+            </div>
+
+            <input type="file" file-change="handler($event,files)" ng-model="myFiles" name="file"/>
+              <div class="row"></div>
+
+            <table class="centered highlight">
+              <thead>
+                <tr>
+                  <th>Number</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="number in numbers">
+                  <td>{{number}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="fixed-action-btn horizontal">
+          <a class="btn green" ng-click="save()">Save</a>
+          <a class="btn red" href="#!/contacts">Cancel</a>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+  <script>
+  $('select').material_select();
+  </script>
+</main>

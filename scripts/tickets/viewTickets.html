@@ -1,0 +1,30 @@
+<main class="full">
+  <div class="container">
+    <div class="row">
+      <div class="col s12">
+        <p class="flow-text center">View Vouchers - {{voucherList.name}}</p>
+        <div class="row">
+          <div class="col s6 push-s3">
+            <table class="centered highlight">
+              <thead>
+                <tr>
+                  <th>Voucher Codes</th>
+                  <th>Used</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="voucher in voucherList.vouchers">
+                  <td>{{voucher.code}}</td>
+                  <td>No</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="fixed-action-btn horizontal">
+          <a class="btn blue" href="#!/tickets">Back To Vouchers</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

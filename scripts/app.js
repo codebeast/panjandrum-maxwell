@@ -10,12 +10,12 @@
     'ngRoute',
     'ngCookies',
     'directives',
-    'controllers'
+    'controllers',
+    'colorpicker'
   ])
   .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     console.log("creating route provider");
     $locationProvider.hashPrefix('!');
-
     $locationProvider.html5Mode({
       enabled: false,
       requireBase: false
@@ -36,6 +36,26 @@
     }).when('/create/campaign', {
       templateUrl: _templateBase + '/campaigns/createcampaign.html' ,
       controller: 'createCampaignController',
+      controllerAs: '_ctrl'
+    }).when('/create/contacts', {
+      templateUrl: _templateBase + '/contacts/createcontacts.html' ,
+      controller: 'createContactsController',
+      controllerAs: '_ctrl'
+    }).when('/create/tickets', {
+      templateUrl: _templateBase + '/tickets/createTickets.html' ,
+      controller: 'createTicketsController',
+      controllerAs: '_ctrl'
+    }).when('/create/template', {
+      templateUrl: _templateBase + '/templates/createTemplate.html' ,
+      controller: 'createTemplateController',
+      controllerAs: '_ctrl'
+    }).when('/view/contacts/:id', {
+      templateUrl: _templateBase + '/contacts/viewContacts.html' ,
+      controller: 'viewContactsController',
+      controllerAs: '_ctrl'
+    }).when('/view/tickets/:id', {
+      templateUrl: _templateBase + '/tickets/viewTickets.html' ,
+      controller: 'viewTicketsController',
       controllerAs: '_ctrl'
     }).when('/settings', {
       templateUrl: _templateBase + '/settings/settings.html' ,
@@ -59,13 +79,17 @@
       controllerAs: '_ctrl'
     });
 
-    $routeProvider.otherwise({ redirectTo: '/create/campaign' });
+    $routeProvider.otherwise({ redirectTo: '/create/template' });
+
   }
 ])
 .run(run);
 
 run.$inject = ['$rootScope', '$location', '$cookieStore', '$http', '$timeout'];
 function run($rootScope, $location, $cookieStore, $http, $timeout) {
+
+  $rootScope.restAPIUrl = "http://localhost:8080";
+
   $rootScope.globals = $cookieStore.get('globals') || {};
   if ($rootScope.globals.currentUser) {
     $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
@@ -74,9 +98,9 @@ function run($rootScope, $location, $cookieStore, $http, $timeout) {
     var restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1;
     var loggedIn = $rootScope.globals.currentUser;
     if (restrictedPage && !loggedIn) {
-      // $location.path('/login');
       console.log("accessing restrictedPage");
-      console.log($location.path());
+        console.log($location.path());
+      // $location.path('/login');
     }
     $('select').material_select();
   });
