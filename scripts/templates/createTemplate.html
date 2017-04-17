@@ -6,31 +6,85 @@
 
         <div class="row">
           <div class="col s6">
-                  <!-- <input color-picker color-picker-model="var"/> -->
-                  <input color-picker
-       color-picker-model="var"
-       color-picker-show-value="true"
-       color-picker-output-format="'hex'"
-       color-picker-position="right"
-       color-picker-fixed-position="rue"
-       color-picker-show-input-spinner="true"
-  />
+            <div class="row">
+              <div class="col s6">
+                <p>Background Color</p>
+                <input color-picker
+                color-picker-model="background"
+                color-picker-show-value="false"
+                ng-style="{background:background}"
+                id="first_name"/>
+              </div>
+              <div class="col s6">
+                <p>Foreground Color</p>
+                <input color-picker
+                color-picker-model="foreground"
+                color-picker-show-value="false"
+                ng-style="{background:foreground}"/>
+              </div>
+
+            </div>
+            <div class="input-field">
+              <select>
+                <option value="1">Voucher Reward</option>
+                <option value="2">Refer A Friend</option>
+                <option value="3">Cross Sell</option>
+              </select>
+              <label>Select Layout</label>
+            </div>
+
+            <div class="file-field input-field">
+              <p>Image</p>
+              <div class="btn">
+                <span>File</span>
+                <input type="file" file-change="handler($event,files)" ng-model="myFiles" name="file">
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text">
+              </div>
+            </div>
+
+            <div class="input-field">
+              <textarea id="messageBody" class="materialize-textarea" ng-model="messageBody"></textarea>
+              <label for="messageBody">Message Body</label>
+            </div>
+
+            <div class="input-field">
+              <textarea id="tagLineBody" class="materialize-textarea" ng-model="tagLineBody"></textarea>
+              <label for="tagLineBody">TagLine Body</label>
+            </div>
+
+            <div class="input-field">
+              <input placeholder="Terms And Conditions" id="terms" type="text" class="validate">
+              <label for="terms">Terms And Conditions Url</label>
+            </div>
           </div>
+
           <div class="col s6 center">
-            <div style="width:411px;height:731px; border-style:solid; border-color:black; border-radius:10px">
+            <div style="width:411px;height:731px; border-style:solid; border-color:black; border-radius:10px"
+            ng-style="{background:background}">
+            <div class="container">
+                <div class="row">
+                  <div class="col s12 center">
+                      <img ng-src="{{imageURL}}" alt="Description" width="250px" height="250px"/>
+                      <p class="flow-text">{{messageBody}}</p>
+                      <p>{{tagLineBody}}</p>
+                  </div>
+                </div>
             </div>
           </div>
         </div>
-
-        <div class="fixed-action-btn horizontal">
-          <a class="btn green" ng-click="save()">Save</a>
-          <a class="btn red" href="#!/contacts">Cancel</a>
-        </div>
-
       </div>
+
+      <div class="fixed-action-btn horizontal">
+        <a class="btn green" ng-click="save()">Save</a>
+        <a class="btn red" href="#!/contacts">Cancel</a>
+      </div>
+
     </div>
   </div>
-  <script>
-  $('select').material_select();
-  </script>
+</div>
+<script>
+$('select').material_select();
+</script>
 </main>

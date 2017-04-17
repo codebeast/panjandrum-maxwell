@@ -6,82 +6,35 @@
   function CreateTemplateController($scope, $location, $http, $rootScope) {
     $scope.myFiles=[];
     $scope.name;
-    $scope.size = 10;
+    $scope.imageURL = "https://cdn.pixabay.com/photo/2016/12/30/11/08/snake-1940343_960_720.png";
 
-    $scope.save = function () {
-      var voucherList = {};
-      voucherList.name = $scope.name;
-      voucherList.vouchers = $scope.vouchers;
-
-      $http({
-        method: 'POST',
-        url: $rootScope.restAPIUrl + '/template',
-        data : voucherList,
-      }).then(function successCallback(response) {
-        $location.path("/vouchers");
-      }, function errorCallback(response) {
-        console.log(response)
-      });
+    $scope.handler=function(e,files){
+      if (!files) {
+        return;
+      }
+      var reader = new FileReader();
+      var file = files[0];
+      reader.onload = (function(theFile) {
+                return function(e) {
+                  $scope.$apply(function() {
+                      $scope.imageURL = e.target.result;
+                  });
+                };
+          })(file);
+      reader.readAsDataURL(file);
     }
 
-    $scope.color = '#FF0000';
 
-    // options - if a list is given then choose one of the items. The first item in the list will be the default
-    $scope.options = {
-      // html attributes
-      // required: [false, true],
-      // disabled: [false, true],
-      placeholder: '',
-      inputClass: '',
-      id: undefined,
-      name: undefined,
-      // color
-      format: ['rgb'],
-      restrictToFormat:  true,
-      hue:  true,
-      saturation: true,
-      lightness: true,
-      alpha: false,
-      // case: ['upper', 'lower'],
-      // swatch
-      swatch: true,
-      swatchPos: 'left',
-      swatchBootstrap:  false,
-      swatchOnly: true,
-      // popup
-      round: false
-      // pos: ['bottom left', 'bottom right', 'top left', 'top right'],
-      // inline: [false, true],
-      // show/hide
-      // show: {
-      //   swatch: [true, false],
-      //   focus: [true, false],
-      // },
-      // hide: {
-      //   blur: [true, false],
-      //   escape: [true, false],
-      //   click: [true, false],
-      // },
-      // // buttons
-      // close: {
-      //   show: [false, true],
-      //   label: 'Close',
-      //   class: '',
-      // },
-      // clear: {
-      //   show: [false, true],
-      //   label: 'Clear',
-      //   class: '',
-      // },
-      // reset: {
-      //   show: [false, true],
-      //   label: 'Reset',
-      //   class: '',
-      // },
-    };
-
-
+    // $http({
+    //   method: 'POST',
+    //   url: $rootScope.restAPIUrl + '/template',
+    //   data : voucherList,
+    // }).then(function successCallback(response) {
+    //   $location.path("/vouchers");
+    // }, function errorCallback(response) {
+    //   console.log(response)
+    // });
 
   }
-}
-)();
+
+})();
