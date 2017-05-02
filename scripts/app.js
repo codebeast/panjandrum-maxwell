@@ -21,6 +21,7 @@
       requireBase: false
     });
 
+
     $routeProvider.when('/login', {
       templateUrl: _templateBase + '/login/login.html' ,
       controller: 'loginController',

@@ -19,11 +19,15 @@
     "angular-radial-color-picker": "^2.0.2",
     "angular-route": "^1.6.4",
     "angular-tooltips": "^1.1.10",
+    "bc-phone-number": "^5.0.6",
+    "betsol-ng-intl-tel-input": "^1.3.2",
     "bootstrap-colorpicker": "^2.5.1",
     "electron": "~1.6.2",
     "hammer": "0.0.5",
+    "intl-tel-input": "^11.0.10",
     "jquery": "^3.2.1",
-    "materialize-css": "^0.98.1"
+    "materialize-css": "^0.98.1",
+    "ng-intl-tel-input": "^2.0.0"
   },
   "dependencies": {
     "angular-tooltips": "^1.1.10"
